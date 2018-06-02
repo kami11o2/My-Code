@@ -626,5 +626,9 @@ int main()
 			}
 		}
 	}while(option!=0);
+	for(int i = 0; i<ds; i++)
+    {
+    	delete sv[i];
+    }
 	return 0;
 }
