@@ -84,7 +84,7 @@ public:
 		in>>a.tuoi;
 		cout<<"Nhap diem ly thuyet: ";
 		in>>a.dlt;
-		cout<<"Nhap thuc hanh     : ";
+		cout<<"Nhap diem thuc hanh: ";
 		in>>a.dth;
 		return in;
 	}
@@ -148,7 +148,7 @@ public:
 		in>>a.tuoi;
 		cout<<"Nhap diem ly thuyet: ";
 		in>>a.dlt;
-		cout<<"Nhap thuc hanh     : ";
+		cout<<"Nhap diem thuc hanh: ";
 		in>>a.dth;
 		return in;
 	}
@@ -411,8 +411,6 @@ int main()
 			{
 				cout<<"1. Them sinh vien.\n";
 				cout<<"2. Sua thong tin sinh vien.\n";
-				cout<<"3. Xoa thong tin sinh vien.\n";
-				cout<<"4. Hien thi thong tin sinh vien.\n";
 				cout<<"Nhap chuc nang ban muon chon: ";
 				cin>>option2;
 				if (option2==1)
@@ -570,7 +568,7 @@ int main()
 			}
 			else if (option1==3)
 			{
-				int markupc;
+				int markupc,l1=1;
 				string pickc;
 				cout<<"Nhap ma sinh vien cua sinh vien ban muon xoa: ";
 				cin>>pickc;
@@ -583,22 +581,30 @@ int main()
 					}
 					if (i==ds)
 					{
-						cout<<"Khong co ma sinh vien nay.\n";
+						l1=0;
 					}
 				}
-				ds--;
-				for (int i=markupc;i<ds;i++)
+				if (l1==1)
 				{
-					SinhVien* sv1;
-					sv1 = sv[i];
-					sv[i] = sv[i+1];
-					sv[i] = sv1;
+					ds--;
+					for (int i=markupc;i<ds;i++)
+					{
+						SinhVien* sv1;
+						sv1 = sv[i+1];
+						sv[i+1] = sv[i];
+						sv[i] = sv1;
+					}
+					sv[ds]->SetMSV("Nope");
+					cout<<"Xoa thong tin sinh vien thanh cong.\n";
 				}
-				SinhVien* sv2;
-				sv[ds]=sv2;
+				else if (l1==0)
+				{
+					cout<<"Khong co ma sinh vien nay.\n";
+				}
 			}
 			else if (option1==4)
 			{
+				int l=1;
 				int markupc1;
 				string pickc1;
 				cout<<"Nhap ma sinh vien ban muon xem thong tin: ";
@@ -611,11 +617,12 @@ int main()
 						break;
 					}
 					if (i==ds)
-					{
-						cout<<"Khong co ma sinh vien nay.\n";
-					}
+						l=0;
 				}
-				sv[markupc1]->Print();
+				if (l==1)
+					sv[markupc1]->Print();
+				else if (l==0)
+					cout<<"Khong co ma sinh vien nay.\n";
 			}
 		}
 	}while(option!=0);
