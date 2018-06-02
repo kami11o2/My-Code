@@ -244,14 +244,14 @@ int main()
 		{
 			cout<<"1. Sinh vien chuyen nganh.\n";
 			cout<<"2. Sinh vien dai cuong.\n";
+			cout<<"3. Xoa thong tin sinh vien.\n";
+			cout<<"4. Hien thi thong tin sinh vien.\n";
 			cout<<"Nhap chuc nang ban muon chon: ";
 			cin>>option1;
 			if (option1==1)
 			{
 				cout<<"1. Them sinh vien.\n";
 				cout<<"2. Sua thong tin sinh vien.\n";
-				cout<<"3. Xoa thong tin sinh vien.\n";
-				cout<<"4. Hien thi thong tin sinh vien.\n";
 				cout<<"Nhap chuc nang ban muon chon: ";
 				cin>>option2;
 				if (option2==1)
@@ -567,6 +567,55 @@ int main()
 						sv[markup11]->SetLyThuyet(fix11);
 					}
 				}
+			}
+			else if (option1==3)
+			{
+				int markupc;
+				string pickc;
+				cout<<"Nhap ma sinh vien cua sinh vien ban muon xoa: ";
+				cin>>pickc;
+				for (int i=0;i<=ds;i++)
+				{
+					if (sv[i]->GetMSV()==pickc)
+					{
+						markupc=i;
+						break;
+					}
+					if (i==ds)
+					{
+						cout<<"Khong co ma sinh vien nay.\n";
+					}
+				}
+				ds--;
+				for (int i=markupc;i<ds;i++)
+				{
+					SinhVien* sv1;
+					sv1 = sv[i];
+					sv[i] = sv[i+1];
+					sv[i] = sv1;
+				}
+				SinhVien* sv2;
+				sv[ds]=sv2;
+			}
+			else if (option1==4)
+			{
+				int markupc1;
+				string pickc1;
+				cout<<"Nhap ma sinh vien ban muon xem thong tin: ";
+				cin>>pickc1;
+				for (int i=0;i<=ds;i++)
+				{
+					if (sv[i]->GetMSV()==pickc1)
+					{
+						markupc1=i;
+						break;
+					}
+					if (i==ds)
+					{
+						cout<<"Khong co ma sinh vien nay.\n";
+					}
+				}
+				sv[markupc1]->Print();
 			}
 		}
 	}while(option!=0);
