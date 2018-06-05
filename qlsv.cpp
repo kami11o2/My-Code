@@ -30,6 +30,14 @@ public:
 	{
 		return msv;
 	}
+	string GetNganh()
+	{
+		return nganh;
+	}
+	string GetTen()
+	{
+		return ten;
+	}
 	virtual void SetLyThuyet(float a)=0;
 	virtual void SetThucHanh(float a)=0;
 	SinhVien(){}
@@ -71,6 +79,14 @@ public:
 	{
 		return msv;
 	}
+	string GetNganh()
+	{
+		return nganh;
+	}
+	string GetTen()
+	{
+		return ten;
+	}
 	friend istream& operator >> (istream& in, ChuyenNganh &a)
 	{
 		in.ignore();
@@ -92,12 +108,14 @@ public:
 	~ChuyenNganh(){}
 	void Print()
 	{
+		cout<<".=========================================.\n";
 		cout<<"Ma sinh vien  : "<<msv<<endl;
 		cout<<"Ho va ten     : "<<ten<<endl;
 		cout<<"Nganh hoc     : "<<nganh<<endl;
 		cout<<"Tuoi          : "<<tuoi<<endl;
 		cout<<"Diem ly thuyet: "<<dlt<<endl;
 		cout<<"Diem thuc hanh: "<<dth<<endl;
+		cout<<".=========================================.\n";
 	}
 };
 
@@ -135,6 +153,10 @@ public:
 	{
 		return msv;
 	}
+	string GetTen()
+	{
+		return ten;
+	}
 	friend istream& operator >> (istream& in, DaiCuong &a)
 	{
 		in.ignore();
@@ -156,12 +178,14 @@ public:
 	~DaiCuong(){}
 	void Print()
 	{
+		cout<<".=========================================.\n";
 		cout<<"Ma sinh vien  : "<<msv<<endl;
 		cout<<"Ho va ten     : "<<ten<<endl;
 		cout<<"Nganh hoc     : "<<nganh<<endl;
 		cout<<"Tuoi          : "<<tuoi<<endl;
 		cout<<"Diem ly thuyet: "<<dlt<<endl;
 		cout<<"Diem thuc hanh: "<<dth<<endl;
+		cout<<".=========================================.\n";
 	}
 };
 
@@ -221,7 +245,6 @@ public:
 	friend istream& operator >> (istream& in, ChuyenNganhHoc &a)
 	{
 		cout<<"Nhap ten chuyen nganh: ";
-		in.ignore();
 		getline(in,a.ten);
 		cout<<"Nhap ma chuyen nganh : ";
 		in>>a.mn;
@@ -265,25 +288,31 @@ int main()
 	int ds=0,dsk=0,dscn=0,dsdd=0;
 	int option,option1,option2,option3;
 	do{
-		cout<<"1. Quan ly sinh vien.\n";
-		cout<<"2. Quan ly khoa.\n";
-		cout<<"0. Thoat.\n";
+		cout<<".================================================.\n";
+		cout<<"| 1. Quan ly sinh vien.                          |\n";
+		cout<<"| 2. Quan ly khoa.                               |\n";
+		cout<<"| 0. Thoat.                                      |\n";
+		cout<<".================================================.\n";
 		cout<<"Nhap chuc nang ban muon chon: ";
 		cin>>option;
 		if (option==1)
 		{
-			cout<<"1. Sinh vien chuyen nganh.\n";
-			cout<<"2. Sinh vien dai cuong.\n";
-			cout<<"3. Xoa thong tin sinh vien.\n";
-			cout<<"4. Hien thi thong tin sinh vien.\n";
-			cout<<"5. Sap xep thu tu sinh vien theo ma sinh vien.\n";
-			cout<<"6. Hien thi thu tu cac sinh vien hien co.\n";
+			cout<<".================================================.\n";
+			cout<<"| 1. Sinh vien chuyen nganh.                     |\n";
+			cout<<"| 2. Sinh vien dai cuong.                        |\n";
+			cout<<"| 3. Xoa thong tin sinh vien.                    |\n";
+			cout<<"| 4. Hien thi thong tin sinh vien.               |\n";
+			cout<<"| 5. Sap xep thu tu sinh vien theo ma sinh vien. |\n";
+			cout<<"| 6. Hien thi thu tu cac sinh vien hien co.      |\n";
+			cout<<".================================================.\n";
 			cout<<"Nhap chuc nang ban muon chon: ";
 			cin>>option1;
 			if (option1==1)
 			{
-				cout<<"1. Them sinh vien.\n";
-				cout<<"2. Sua thong tin sinh vien.\n";
+				cout<<".================================================.\n";
+				cout<<"| 1. Them sinh vien.                             |\n";
+				cout<<"| 2. Sua thong tin sinh vien.                    |\n";
+				cout<<".================================================.\n";
 				cout<<"Nhap chuc nang ban muon chon: ";
 				cin>>option2;
 				if (option2==1)
@@ -295,12 +324,14 @@ int main()
 				}
 				else if (option2==2)
 				{
-					cout<<"1. Sua ma sinh vien.\n";
-					cout<<"2. Sua ten sinh vien.\n";
-					cout<<"3. Sua nganh hoc.\n";
-					cout<<"4. Sua tuoi sinh vien.\n";
-					cout<<"5. Sua diem ly thuyet.\n";
-					cout<<"6. Sua diem thuc hanh.\n";
+					cout<<".================================================.\n";
+					cout<<"| 1. Sua ma sinh vien.                           |\n";
+					cout<<"| 2. Sua ten sinh vien.                          |\n";
+					cout<<"| 3. Sua nganh hoc.                              |\n";
+					cout<<"| 4. Sua tuoi sinh vien.                         |\n";
+					cout<<"| 5. Sua diem ly thuyet.                         |\n";
+					cout<<"| 6. Sua diem thuc hanh.                         |\n";
+					cout<<".================================================.\n";
 					cout<<"Nhap chuc nang ban muon chon: ";
 					cin>>option3;
 					if (option3==1)
@@ -473,8 +504,10 @@ int main()
 			}
 			else if (option1==2)
 			{
-				cout<<"1. Them sinh vien.\n";
-				cout<<"2. Sua thong tin sinh vien.\n";
+				cout<<".================================================.\n";
+				cout<<"| 1. Them sinh vien.                             |\n";
+				cout<<"| 2. Sua thong tin sinh vien.                    |\n";
+				cout<<".================================================.\n";
 				cout<<"Nhap chuc nang ban muon chon: ";
 				cin>>option2;
 				if (option2==1)
@@ -486,12 +519,14 @@ int main()
 				}
 				else if (option2==2)
 				{
-					cout<<"1. Sua ma sinh vien.\n";
-					cout<<"2. Sua ten sinh vien.\n";
-					cout<<"3. Sua nganh hoc.\n";
-					cout<<"4. Sua tuoi sinh vien.\n";
-					cout<<"5. Sua diem ly thuyet.\n";
-					cout<<"6. Sua diem thuc hanh.\n";
+					cout<<".================================================.\n";
+					cout<<"| 1. Sua ma sinh vien.                           |\n";
+					cout<<"| 2. Sua ten sinh vien.                          |\n";
+					cout<<"| 3. Sua nganh hoc.                              |\n";
+					cout<<"| 4. Sua tuoi sinh vien.                         |\n";
+					cout<<"| 5. Sua diem ly thuyet.                         |\n";
+					cout<<"| 6. Sua diem thuc hanh.                         |\n";
+					cout<<".================================================.\n";
 					cout<<"Nhap chuc nang ban muon chon: ";
 					cin>>option3;
 					if (option3==1)
@@ -688,7 +723,7 @@ int main()
 						sv[i+1] = sv[i];
 						sv[i] = sv1;
 					}
-					sv[ds]->SetMSV("Nope");
+					sv[ds]->SetMSV("");
 					cout<<"Xoa thong tin sinh vien thanh cong.\n";
 				}
 				else if (l1==0)
@@ -747,16 +782,20 @@ int main()
 		}
 		else if (option==2)
 		{
-			cout<<"1. Quan ly khoa.\n";
-			cout<<"2. Quan ly chuyen nganh hoc.\n";
+			cout<<".================================================.\n";
+			cout<<"| 1. Quan ly khoa.                               |\n";
+			cout<<"| 2. Quan ly chuyen nganh hoc.                   |\n";
+			cout<<".================================================.\n";
 			cout<<"Nhap chuc nang ban muon chon: ";
 			cin>>option1;
 			if (option1==1)
 			{
-				cout<<"1. Them khoa.\n";
-				cout<<"2. Sua thong tin khoa.\n";
-				cout<<"3. Xoa thong tin khoa.\n";
-				cout<<"4. Hien thi thong tin khoa.\n";
+				cout<<".================================================.\n";
+				cout<<"| 1. Them khoa.                                  |\n";
+				cout<<"| 2. Sua thong tin khoa.                         |\n";
+				cout<<"| 3. Xoa thong tin khoa.                         |\n";
+				cout<<"| 4. Hien thi thong tin khoa.                    |\n";
+				cout<<".================================================.\n";
 				cout<<"Nhap chuc nang ban muon chon: ";
 				cin>>option2;
 				if (option2==1)
@@ -836,10 +875,12 @@ int main()
 			}
 			else if (option1==2)
 			{
-				cout<<"1. Them chuyen nganh.\n";
-				cout<<"2. Sua thong tin chuyen nganh.\n";
-				cout<<"3. Xoa thong tin chuyen nganh.\n";
-				cout<<"4. Hien thi thong tin chuyen nganh.\n";
+				cout<<".================================================.\n";
+				cout<<"| 1. Them chuyen nganh.                          |\n";
+				cout<<"| 2. Sua thong tin chuyen nganh.                 |\n";
+				cout<<"| 3. Xoa thong tin chuyen nganh.                 |\n";
+				cout<<"| 4. Hien thi thong tin chuyen nganh.            |\n";
+				cout<<".================================================.\n";
 				cout<<"Nhap chuc nang ban muon chon: ";
 				cin>>option2;
 				if (option2==1)
@@ -847,7 +888,8 @@ int main()
 					int m1=1;
 					string tenk;
 					cout<<"Nhap ten khoa ban muon them chuyen nganh hoc: ";
-					cin>>tenk;
+					cin.ignore();
+					getline(cin,tenk);
 					for (int i=0;i<=dsk;i++)
 					{
 						if (k[i].GetTen()==tenk)
@@ -871,8 +913,10 @@ int main()
 				}
 				else if (option2==2)
 				{
-					cout<<"1. Sua ten chuyen nganh.\n";
-					cout<<"2. Sua ma chuyen nganh.\n";
+					cout<<".================================================.\n";
+					cout<<"| 1. Sua ten chuyen nganh.                       |\n";
+					cout<<"| 2. Sua ma chuyen nganh.                        |\n";
+					cout<<".================================================.\n";
 					cout<<"Nhap chuc nang ban muon chon: ";
 					cin>>option3;
 					if (option3==1)
@@ -973,11 +1017,12 @@ int main()
 				{
 					int m5=1,markupcn3;
 					string pickcn1;
-					cout<<"Nhap ten chuyen nganh ban muon xem thong tin: ";
-					cin>>pickcn1;
+					cout<<"Nhap ten chuyen nganh hoac ma chuyen nganh ban muon xem thong tin: ";
+					cin.ignore();
+					getline(cin,pickcn1);
 					for (int i=0;i<=dscn;i++)
 					{
-						if (cnh[i].GetTen()==pickcn1)
+						if (cnh[i].GetTen()==pickcn1 || cnh[i].GetMa()==pickcn1)
 						{
 							markupcn3=i;
 							break;
@@ -991,6 +1036,14 @@ int main()
 					{
 						cout<<cnh[markupcn3];
 						cout<<"Thuoc khoa: "<<k[markupdd[markupcn3]]<<endl;
+						cout<<"Cac sinh vien thuoc chuyen nganh: \n";
+						for (int i=0;i<ds;i++)
+						{
+							if (sv[i]->GetNganh()==cnh[markupcn3].GetMa())
+							{
+								cout<<"- "<<sv[i]->GetMSV()<<" - "<<sv[i]->GetTen()<<endl;
+							}
+						}
 					}
 					else
 						cout<<"Khong co chuyen nganh nay!\n";
