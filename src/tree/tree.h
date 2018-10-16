@@ -1,56 +1,79 @@
+template <class T>
 struct NodeTree
 {
-	int data;
-	NodeTree *right;
-	NodeTree *left;
+	T data;
+	NodeTree<T> *right;
+	NodeTree<T> *left;
 };
+
+template <class T>
 
 class Tree
 {
 private:
-	NodeTree *root;
+	NodeTree<T> *root;
+	void PrePrint(NodeTree<T> *root) const
+	{
+		if (root != 0)
+		{
+			PrePrint(root->left);
+			cout<<root->data<<" ";
+			PrePrint(root->right);
+		}
+	}
 public:
 	Tree ()
 	{
 		root = 0;
 	}
 	
-	void Add(int value)
+	void Add(T value)
 	{
-		NodeTree *temp = new NodeTree;
+		NodeTree<T> *temp = new NodeTree<T>;
 		temp->data = value;
+		temp->right = 0;
+		temp->left = 0;
 		if (root == 0)
 			root = temp;
 		else
 		{
-			NodeTree *n = root;
+			NodeTree<T> *n = root;
+			NodeTree<T> *t = n;
 			while (n!=0)
 			{
-				if (temp->data > n->data)
+				t = n;
+				if (n->data < value)
 					n = n->right;
 				else
 					n = n->left;
 			}
-			n = temp;
+			if (t->data < value)
+				t->right = temp;
+			else
+				t->left = temp;
 		}
 	};
 	
-	int Temp(NodeTree *root)
+	void PreOrder() const
 	{
-		if(root->left == 0)
-			return root->left->data;
-		if(root->right == 0)
-			return root->right->data;
-		if(root->left != 0)
-    		return Temp(root->left);
-    	cout<<root->data<<" ";
-    	return Temp(root->right);
-	}
-	
-	void Print()
-	{
-		NodeTree *t = root;
-		Temp(t);
+		PrePrint(root);
 	};
+
+	bool Search(T value)
+	{
+		NodeTree<T> *t = root;
+		if (root -> data == value)
+			return true;
+		while (t != NULL)
+		{
+			if (t->data == value)
+				return true;
+			if (t->data < value)
+				t = t->right;
+			else
+				t = t->left;
+		}
+		return false;
+	}
 
 };
