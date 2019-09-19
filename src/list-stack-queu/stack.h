@@ -37,7 +37,7 @@ public:
 
 	bool IsEmpty() const
 	{
-		return top=0;
+		return top==0;
 	};
 };
 
